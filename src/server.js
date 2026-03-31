@@ -39,7 +39,7 @@ app.get("/health", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.type("text/plain").send("Server is running");
+  res.render("login"); // or "home" or your main page
 });
 
 // Auth
