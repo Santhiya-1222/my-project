@@ -1,0 +1,33 @@
+<%- include("partials/layout", { title: "Home", body: `
+  <div class="hero-card shadow-eatclub mb-3">
+    <div class="hero-card__inner">
+      <div class="hero-card__title">Welcome, ${user.username}!</div>
+      <div class="hero-card__subtitle">What would you like to eat today?</div>
+      <div class="hero-card__status ${ordering.isOrderingOpen ? "is-open" : "is-closed"}">
+        <div class="hero-card__statusTitle">${ordering.isOrderingOpen ? "Ordering Open" : "Ordering Closed"}</div>
+        <div class="hero-card__statusText">${ordering.reason}</div>
+        <a class="btn btn-eatclub mt-2" href="/menu">Browse Menu</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-3">
+    <div class="col-6">
+      <a href="/menu" class="quick-card shadow-eatclub">
+        <div class="quick-card__icon">🍽</div>
+        <div class="quick-card__title">View Menu</div>
+        <div class="quick-card__subtitle">Browse all items</div>
+      </a>
+    </div>
+    <div class="col-6">
+      <a href="/cart" class="quick-card shadow-eatclub">
+        <div class="quick-card__icon">🛒</div>
+        <div class="quick-card__title">My Cart</div>
+        <div class="quick-card__subtitle">Review & checkout</div>
+      </a>
+    </div>
+  </div>
+
+  ${include("partials/student-nav", { active: "home" })}
+` }) %>
+

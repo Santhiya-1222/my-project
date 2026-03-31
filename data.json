@@ -1,0 +1,229 @@
+{
+  "nextIds": {
+    "user": 11,
+    "item": 12,
+    "order": 3
+  },
+  "users": [
+    {
+      "id": 3,
+      "role": "student",
+      "name": "Smoke Student",
+      "email": "smoke1@example.com",
+      "studentId": "2024SMK01",
+      "password": "pass123"
+    },
+    {
+      "id": 4,
+      "role": "student",
+      "name": "Smoke Student2",
+      "email": "smoke2@example.com",
+      "studentId": "2024SMK02",
+      "password": "pass123"
+    },
+    {
+      "id": 5,
+      "role": "student",
+      "name": "Smoke Student3",
+      "email": "smoke3@example.com",
+      "studentId": "2024SMK03",
+      "password": "pass123"
+    },
+    {
+      "id": 6,
+      "role": "student",
+      "name": "Smoke Student4",
+      "email": "smoke4@example.com",
+      "studentId": "2024SMK04",
+      "password": "pass123"
+    },
+    {
+      "id": 7,
+      "role": "student",
+      "name": "Smoke Student5",
+      "email": "smoke5@example.com",
+      "studentId": "2024SMK05",
+      "password": "pass123"
+    },
+    {
+      "id": 8,
+      "role": "student",
+      "name": "santhiya s",
+      "email": "santhiyasaravanan443@gmail.com",
+      "studentId": "2023cs100",
+      "password": "1234"
+    },
+    {
+      "id": 9,
+      "role": "student",
+      "name": "santhiya s",
+      "email": "santhiyasudha1222@gmail.com",
+      "studentId": "2023cs103",
+      "password": "1123456"
+    },
+    {
+      "id": 10,
+      "role": "student",
+      "name": "Admin",
+      "email": "admin@example.com",
+      "studentId": "2023cs011",
+      "password": "admin123"
+    }
+  ],
+  "food_items": [
+    {
+      "id": 1,
+      "name": "Egg Fried Rice",
+      "meal": "afternoon",
+      "price": 40,
+      "available": true,
+      "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22320%22%20height%3D%22220%22%20viewBox%3D%220%200%20320%20220%22%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23ff7a18%22%20stop-opacity%3D%220.30%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23ff9a3d%22%20stop-opacity%3D%220.14%22%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22320%22%20height%3D%22220%22%20rx%3D%2222%22%20fill%3D%22url(%23g)%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22110%22%20cy%3D%2295%22%20r%3D%2260%22%20fill%3D%22%23ff7a18%22%20opacity%3D%220.22%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22230%22%20cy%3D%22125%22%20r%3D%2272%22%20fill%3D%22%23ff9a3d%22%20opacity%3D%220.16%22%2F%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%2258%22%20y%3D%22132%22%20width%3D%22204%22%20height%3D%2244%22%20rx%3D%2216%22%20fill%3D%22rgba(0%2C0%2C0%2C0.34)%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.12)%22%2F%3E%0A%20%20%20%20%20%20%3Ctext%20x%3D%22160%22%20y%3D%22160%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22800%22%20fill%3D%22%23111111%22%3E%0A%20%20%20%20%20%20%20%20FR%0A%20%20%20%20%20%20%3C%2Ftext%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M72%2078%20C98%2052%2C%20120%2054%2C%20145%2080%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.28)%22%20stroke-width%3D%226%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M178%2074%20C206%2046%2C%20244%2054%2C%20252%2088%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.18)%22%20stroke-width%3D%226%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E"
+    },
+    {
+      "id": 2,
+      "name": "Egg Noodles",
+      "meal": "afternoon",
+      "price": 40,
+      "available": true,
+      "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22320%22%20height%3D%22220%22%20viewBox%3D%220%200%20320%20220%22%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23ff7a18%22%20stop-opacity%3D%220.30%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23ff9a3d%22%20stop-opacity%3D%220.14%22%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22320%22%20height%3D%22220%22%20rx%3D%2222%22%20fill%3D%22url(%23g)%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22110%22%20cy%3D%2295%22%20r%3D%2260%22%20fill%3D%22%23ff7a18%22%20opacity%3D%220.22%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22230%22%20cy%3D%22125%22%20r%3D%2272%22%20fill%3D%22%23ff9a3d%22%20opacity%3D%220.16%22%2F%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%2258%22%20y%3D%22132%22%20width%3D%22204%22%20height%3D%2244%22%20rx%3D%2216%22%20fill%3D%22rgba(0%2C0%2C0%2C0.34)%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.12)%22%2F%3E%0A%20%20%20%20%20%20%3Ctext%20x%3D%22160%22%20y%3D%22160%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22800%22%20fill%3D%22%23111111%22%3E%0A%20%20%20%20%20%20%20%20EN%0A%20%20%20%20%20%20%3C%2Ftext%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M72%2078%20C98%2052%2C%20120%2054%2C%20145%2080%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.28)%22%20stroke-width%3D%226%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M178%2074%20C206%2046%2C%20244%2054%2C%20252%2088%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.18)%22%20stroke-width%3D%226%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E"
+    },
+    {
+      "id": 3,
+      "name": "Parota (per set)",
+      "meal": "afternoon",
+      "price": 25,
+      "available": true,
+      "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22320%22%20height%3D%22220%22%20viewBox%3D%220%200%20320%20220%22%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23ff7a18%22%20stop-opacity%3D%220.30%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23ff9a3d%22%20stop-opacity%3D%220.14%22%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22320%22%20height%3D%22220%22%20rx%3D%2222%22%20fill%3D%22url(%23g)%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22110%22%20cy%3D%2295%22%20r%3D%2260%22%20fill%3D%22%23ff7a18%22%20opacity%3D%220.22%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22230%22%20cy%3D%22125%22%20r%3D%2272%22%20fill%3D%22%23ff9a3d%22%20opacity%3D%220.16%22%2F%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%2258%22%20y%3D%22132%22%20width%3D%22204%22%20height%3D%2244%22%20rx%3D%2216%22%20fill%3D%22rgba(0%2C0%2C0%2C0.34)%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.12)%22%2F%3E%0A%20%20%20%20%20%20%3Ctext%20x%3D%22160%22%20y%3D%22160%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22800%22%20fill%3D%22%23111111%22%3E%0A%20%20%20%20%20%20%20%20PT%0A%20%20%20%20%20%20%3C%2Ftext%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M72%2078%20C98%2052%2C%20120%2054%2C%20145%2080%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.28)%22%20stroke-width%3D%226%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M178%2074%20C206%2046%2C%20244%2054%2C%20252%2088%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.18)%22%20stroke-width%3D%226%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E"
+    },
+    {
+      "id": 4,
+      "name": "Omelet",
+      "meal": "afternoon",
+      "price": 15,
+      "available": true,
+      "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22320%22%20height%3D%22220%22%20viewBox%3D%220%200%20320%20220%22%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23ff7a18%22%20stop-opacity%3D%220.30%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23ff9a3d%22%20stop-opacity%3D%220.14%22%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22320%22%20height%3D%22220%22%20rx%3D%2222%22%20fill%3D%22url(%23g)%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22110%22%20cy%3D%2295%22%20r%3D%2260%22%20fill%3D%22%23ff7a18%22%20opacity%3D%220.22%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22230%22%20cy%3D%22125%22%20r%3D%2272%22%20fill%3D%22%23ff9a3d%22%20opacity%3D%220.16%22%2F%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%2258%22%20y%3D%22132%22%20width%3D%22204%22%20height%3D%2244%22%20rx%3D%2216%22%20fill%3D%22rgba(0%2C0%2C0%2C0.34)%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.12)%22%2F%3E%0A%20%20%20%20%20%20%3Ctext%20x%3D%22160%22%20y%3D%22160%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22800%22%20fill%3D%22%23111111%22%3E%0A%20%20%20%20%20%20%20%20OM%0A%20%20%20%20%20%20%3C%2Ftext%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M72%2078%20C98%2052%2C%20120%2054%2C%20145%2080%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.28)%22%20stroke-width%3D%226%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M178%2074%20C206%2046%2C%20244%2054%2C%20252%2088%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.18)%22%20stroke-width%3D%226%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E"
+    },
+    {
+      "id": 5,
+      "name": "Chilli Chicken (100g)",
+      "meal": "afternoon",
+      "price": 45,
+      "available": true,
+      "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22320%22%20height%3D%22220%22%20viewBox%3D%220%200%20320%20220%22%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23ff7a18%22%20stop-opacity%3D%220.30%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23ff9a3d%22%20stop-opacity%3D%220.14%22%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22320%22%20height%3D%22220%22%20rx%3D%2222%22%20fill%3D%22url(%23g)%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22110%22%20cy%3D%2295%22%20r%3D%2260%22%20fill%3D%22%23ff7a18%22%20opacity%3D%220.22%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22230%22%20cy%3D%22125%22%20r%3D%2272%22%20fill%3D%22%23ff9a3d%22%20opacity%3D%220.16%22%2F%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%2258%22%20y%3D%22132%22%20width%3D%22204%22%20height%3D%2244%22%20rx%3D%2216%22%20fill%3D%22rgba(0%2C0%2C0%2C0.34)%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.12)%22%2F%3E%0A%20%20%20%20%20%20%3Ctext%20x%3D%22160%22%20y%3D%22160%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22800%22%20fill%3D%22%23111111%22%3E%0A%20%20%20%20%20%20%20%20CC%0A%20%20%20%20%20%20%3C%2Ftext%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M72%2078%20C98%2052%2C%20120%2054%2C%20145%2080%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.28)%22%20stroke-width%3D%226%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M178%2074%20C206%2046%2C%20244%2054%2C%20252%2088%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.18)%22%20stroke-width%3D%226%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E"
+    },
+    {
+      "id": 6,
+      "name": "Pasta",
+      "meal": "afternoon",
+      "price": 40,
+      "available": true,
+      "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22320%22%20height%3D%22220%22%20viewBox%3D%220%200%20320%20220%22%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23ff7a18%22%20stop-opacity%3D%220.30%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23ff9a3d%22%20stop-opacity%3D%220.14%22%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22320%22%20height%3D%22220%22%20rx%3D%2222%22%20fill%3D%22url(%23g)%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22110%22%20cy%3D%2295%22%20r%3D%2260%22%20fill%3D%22%23ff7a18%22%20opacity%3D%220.22%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22230%22%20cy%3D%22125%22%20r%3D%2272%22%20fill%3D%22%23ff9a3d%22%20opacity%3D%220.16%22%2F%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%2258%22%20y%3D%22132%22%20width%3D%22204%22%20height%3D%2244%22%20rx%3D%2216%22%20fill%3D%22rgba(0%2C0%2C0%2C0.34)%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.12)%22%2F%3E%0A%20%20%20%20%20%20%3Ctext%20x%3D%22160%22%20y%3D%22160%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22800%22%20fill%3D%22%23111111%22%3E%0A%20%20%20%20%20%20%20%20PA%0A%20%20%20%20%20%20%3C%2Ftext%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M72%2078%20C98%2052%2C%20120%2054%2C%20145%2080%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.28)%22%20stroke-width%3D%226%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M178%2074%20C206%2046%2C%20244%2054%2C%20252%2088%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.18)%22%20stroke-width%3D%226%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E"
+    },
+    {
+      "id": 7,
+      "name": "Chilli Chicken (100g)",
+      "meal": "evening",
+      "price": 40,
+      "available": true,
+      "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22320%22%20height%3D%22220%22%20viewBox%3D%220%200%20320%20220%22%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23ff7a18%22%20stop-opacity%3D%220.30%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23ff9a3d%22%20stop-opacity%3D%220.14%22%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22320%22%20height%3D%22220%22%20rx%3D%2222%22%20fill%3D%22url(%23g)%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22110%22%20cy%3D%2295%22%20r%3D%2260%22%20fill%3D%22%23ff7a18%22%20opacity%3D%220.22%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22230%22%20cy%3D%22125%22%20r%3D%2272%22%20fill%3D%22%23ff9a3d%22%20opacity%3D%220.16%22%2F%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%2258%22%20y%3D%22132%22%20width%3D%22204%22%20height%3D%2244%22%20rx%3D%2216%22%20fill%3D%22rgba(0%2C0%2C0%2C0.34)%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.12)%22%2F%3E%0A%20%20%20%20%20%20%3Ctext%20x%3D%22160%22%20y%3D%22160%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22800%22%20fill%3D%22%23111111%22%3E%0A%20%20%20%20%20%20%20%20CC%0A%20%20%20%20%20%20%3C%2Ftext%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M72%2078%20C98%2052%2C%20120%2054%2C%20145%2080%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.28)%22%20stroke-width%3D%226%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M178%2074%20C206%2046%2C%20244%2054%2C%20252%2088%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.18)%22%20stroke-width%3D%226%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E"
+    },
+    {
+      "id": 8,
+      "name": "Omelette",
+      "meal": "evening",
+      "price": 25,
+      "available": true,
+      "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22320%22%20height%3D%22220%22%20viewBox%3D%220%200%20320%20220%22%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23ff7a18%22%20stop-opacity%3D%220.30%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23ff9a3d%22%20stop-opacity%3D%220.14%22%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22320%22%20height%3D%22220%22%20rx%3D%2222%22%20fill%3D%22url(%23g)%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22110%22%20cy%3D%2295%22%20r%3D%2260%22%20fill%3D%22%23ff7a18%22%20opacity%3D%220.22%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22230%22%20cy%3D%22125%22%20r%3D%2272%22%20fill%3D%22%23ff9a3d%22%20opacity%3D%220.16%22%2F%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%2258%22%20y%3D%22132%22%20width%3D%22204%22%20height%3D%2244%22%20rx%3D%2216%22%20fill%3D%22rgba(0%2C0%2C0%2C0.34)%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.12)%22%2F%3E%0A%20%20%20%20%20%20%3Ctext%20x%3D%22160%22%20y%3D%22160%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22800%22%20fill%3D%22%23111111%22%3E%0A%20%20%20%20%20%20%20%20OE%0A%20%20%20%20%20%20%3C%2Ftext%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M72%2078%20C98%2052%2C%20120%2054%2C%20145%2080%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.28)%22%20stroke-width%3D%226%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M178%2074%20C206%2046%2C%20244%2054%2C%20252%2088%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.18)%22%20stroke-width%3D%226%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E"
+    },
+    {
+      "id": 9,
+      "name": "Bread Omelette",
+      "meal": "evening",
+      "price": 30,
+      "available": true,
+      "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22320%22%20height%3D%22220%22%20viewBox%3D%220%200%20320%20220%22%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23ff7a18%22%20stop-opacity%3D%220.30%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23ff9a3d%22%20stop-opacity%3D%220.14%22%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22320%22%20height%3D%22220%22%20rx%3D%2222%22%20fill%3D%22url(%23g)%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22110%22%20cy%3D%2295%22%20r%3D%2260%22%20fill%3D%22%23ff7a18%22%20opacity%3D%220.22%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22230%22%20cy%3D%22125%22%20r%3D%2272%22%20fill%3D%22%23ff9a3d%22%20opacity%3D%220.16%22%2F%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%2258%22%20y%3D%22132%22%20width%3D%22204%22%20height%3D%2244%22%20rx%3D%2216%22%20fill%3D%22rgba(0%2C0%2C0%2C0.34)%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.12)%22%2F%3E%0A%20%20%20%20%20%20%3Ctext%20x%3D%22160%22%20y%3D%22160%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22800%22%20fill%3D%22%23111111%22%3E%0A%20%20%20%20%20%20%20%20BO%0A%20%20%20%20%20%20%3C%2Ftext%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M72%2078%20C98%2052%2C%20120%2054%2C%20145%2080%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.28)%22%20stroke-width%3D%226%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M178%2074%20C206%2046%2C%20244%2054%2C%20252%2088%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.18)%22%20stroke-width%3D%226%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E"
+    },
+    {
+      "id": 10,
+      "name": "Pani Puri",
+      "meal": "evening",
+      "price": 25,
+      "available": true,
+      "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22320%22%20height%3D%22220%22%20viewBox%3D%220%200%20320%20220%22%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23ff7a18%22%20stop-opacity%3D%220.30%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23ff9a3d%22%20stop-opacity%3D%220.14%22%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22320%22%20height%3D%22220%22%20rx%3D%2222%22%20fill%3D%22url(%23g)%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22110%22%20cy%3D%2295%22%20r%3D%2260%22%20fill%3D%22%23ff7a18%22%20opacity%3D%220.22%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22230%22%20cy%3D%22125%22%20r%3D%2272%22%20fill%3D%22%23ff9a3d%22%20opacity%3D%220.16%22%2F%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%2258%22%20y%3D%22132%22%20width%3D%22204%22%20height%3D%2244%22%20rx%3D%2216%22%20fill%3D%22rgba(0%2C0%2C0%2C0.34)%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.12)%22%2F%3E%0A%20%20%20%20%20%20%3Ctext%20x%3D%22160%22%20y%3D%22160%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22800%22%20fill%3D%22%23111111%22%3E%0A%20%20%20%20%20%20%20%20PP%0A%20%20%20%20%20%20%3C%2Ftext%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M72%2078%20C98%2052%2C%20120%2054%2C%20145%2080%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.28)%22%20stroke-width%3D%226%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M178%2074%20C206%2046%2C%20244%2054%2C%20252%2088%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.18)%22%20stroke-width%3D%226%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E"
+    },
+    {
+      "id": 11,
+      "name": "Masala Puri",
+      "meal": "evening",
+      "price": 25,
+      "available": true,
+      "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22320%22%20height%3D%22220%22%20viewBox%3D%220%200%20320%20220%22%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23ff7a18%22%20stop-opacity%3D%220.30%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23ff9a3d%22%20stop-opacity%3D%220.14%22%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22320%22%20height%3D%22220%22%20rx%3D%2222%22%20fill%3D%22url(%23g)%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22110%22%20cy%3D%2295%22%20r%3D%2260%22%20fill%3D%22%23ff7a18%22%20opacity%3D%220.22%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22230%22%20cy%3D%22125%22%20r%3D%2272%22%20fill%3D%22%23ff9a3d%22%20opacity%3D%220.16%22%2F%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%2258%22%20y%3D%22132%22%20width%3D%22204%22%20height%3D%2244%22%20rx%3D%2216%22%20fill%3D%22rgba(0%2C0%2C0%2C0.34)%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.12)%22%2F%3E%0A%20%20%20%20%20%20%3Ctext%20x%3D%22160%22%20y%3D%22160%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22800%22%20fill%3D%22%23111111%22%3E%0A%20%20%20%20%20%20%20%20MP%0A%20%20%20%20%20%20%3C%2Ftext%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M72%2078%20C98%2052%2C%20120%2054%2C%20145%2080%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.28)%22%20stroke-width%3D%226%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M178%2074%20C206%2046%2C%20244%2054%2C%20252%2088%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.18)%22%20stroke-width%3D%226%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "user_id": 9,
+      "item_id": 9,
+      "item_name": "Bread Omelette",
+      "unit_price": 30,
+      "quantity": 4,
+      "total_price": 120,
+      "pay_method": "offline",
+      "paid_online": false,
+      "paid": true,
+      "payment_ref": null,
+      "notes": "extra spice",
+      "created_at": "2026-03-27 14:26:19",
+      "slot": "evening",
+      "lines": [
+        {
+          "item_id": 9,
+          "item_name": "Bread Omelette",
+          "unit_price": 30,
+          "quantity": 4,
+          "line_total": 120
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "user_id": 10,
+      "item_id": 7,
+      "item_name": "Chilli Chicken (100g) + 2 more",
+      "unit_price": 40,
+      "quantity": 5,
+      "total_price": 140,
+      "pay_method": "offline",
+      "paid_online": false,
+      "paid": true,
+      "payment_ref": null,
+      "notes": "",
+      "created_at": "2026-03-28 15:52:12",
+      "slot": "evening",
+      "lines": [
+        {
+          "item_id": 7,
+          "item_name": "Chilli Chicken (100g)",
+          "unit_price": 40,
+          "quantity": 1,
+          "line_total": 40
+        },
+        {
+          "item_id": 8,
+          "item_name": "Omelette",
+          "unit_price": 25,
+          "quantity": 1,
+          "line_total": 25
+        },
+        {
+          "item_id": 11,
+          "item_name": "Masala Puri",
+          "unit_price": 25,
+          "quantity": 3,
+          "line_total": 75
+        }
+      ]
+    }
+  ]
+}

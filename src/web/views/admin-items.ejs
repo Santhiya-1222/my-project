@@ -1,0 +1,86 @@
+<%- include("partials/layout", { title: "Food Items", body: `
+  <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap mb-3">
+    <div>
+      <div class="page-title">Food Items</div>
+      <div class="text-muted">Manage menu</div>
+    </div>
+    <button class="btn btn-eatclub btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#addItemModal">+ Add Item</button>
+  </div>
+
+  <div class="vstack gap-3 mb-5">
+    ${(items || []).map(i => `
+      <div class="item-row shadow-eatclub">
+        <div class="item-row__img" aria-hidden="true"></div>
+        <div class="item-row__main">
+          <div class="item-row__title">${i.name}</div>
+          <div class="item-row__meta">
+            <span class="price">₹${Number(i.price).toFixed(0)}</span>
+            <span class="dot">•</span>
+            <span class="text-muted">${i.meal}</span>
+          </div>
+        </div>
+        <div class="item-row__actions">
+          <form method="post" action="/admin/item/update" class="d-flex align-items-center gap-2">
+            <input type="hidden" name="id" value="${i.id}" />
+            <input class="form-control form-control-sm" style="width:86px" type="number" step="1" min="0" name="price" value="${Number(i.price).toFixed(0)}" />
+            <label class="switch">
+              <input type="checkbox" name="available" ${i.available ? "checked" : ""} onchange="this.form.submit()"/>
+              <span class="switch__track"></span>
+            </label>
+          </form>
+          <form method="post" action="/admin/item/delete">
+            <input type="hidden" name="id" value="${i.id}" />
+            <button class="btn btn-icon btn-danger-soft" type="submit" onclick="return confirm('Delete this item?')">🗑</button>
+          </form>
+        </div>
+      </div>
+    `).join("")}
+  </div>
+
+  <div class="modal fade" id="addItemModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add Food Item</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form method="post" action="/admin/item/add">
+          <div class="modal-body vstack gap-2">
+            <div>
+              <label class="form-label">Name</label>
+              <input class="form-control" name="name" placeholder="Item name" required />
+            </div>
+            <div class="row g-2">
+              <div class="col-6">
+                <label class="form-label">Price (₹)</label>
+                <input class="form-control" type="number" step="1" min="0" name="price" value="0" required />
+              </div>
+              <div class="col-6">
+                <label class="form-label">Category</label>
+                <select class="form-select" name="meal" required>
+                  <option value="afternoon">Lunch</option>
+                  <option value="evening">Evening</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-check mt-1">
+              <input class="form-check-input" type="checkbox" name="available" id="availNew" checked />
+              <label class="form-check-label" for="availNew">Available</label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-outline-secondary" type="button" data-bs-dismiss="modal">Cancel</button>
+            <button class="btn btn-eatclub" type="submit">Add Item</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  ${include("partials/admin-nav", { active: "items" })}
+` }) %>
+

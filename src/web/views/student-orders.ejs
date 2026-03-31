@@ -1,0 +1,48 @@
+<%- include("partials/layout", { title: "My orders", body: `
+  <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap mb-3">
+    <div>
+      <div class="page-title">My Orders</div>
+      <div class="text-muted">Your recent orders</div>
+    </div>
+  </div>
+
+  ${(!orders || !orders.length) ? `
+    <div class="empty-state shadow-eatclub">
+      <div class="empty-state__icon">🧾</div>
+      <div class="empty-state__title">No orders yet</div>
+      <div class="empty-state__subtitle">Place an order from the menu.</div>
+      <a class="btn btn-eatclub mt-3" href="/menu">Browse Menu</a>
+    </div>
+  ` : `
+    <div class="vstack gap-3 mb-5">
+      ${orders.map(o => `
+        <div class="order-card shadow-eatclub">
+          <div class="d-flex justify-content-between align-items-start gap-3">
+            <div>
+              <div class="fw-semibold">${o.item_name}</div>
+              <div class="small text-muted">#${o.id} • ${o.created_at}</div>
+              <div class="small text-muted">${o.slot && o.slot !== "unknown" ? o.slot : ""}</div>
+            </div>
+            <div class="text-end">
+              <div class="fw-semibold">₹${Number(o.total_price).toFixed(0)}</div>
+              <div class="small ${o.paid ? "text-success" : "text-warning"}">${o.paid ? "Paid" : "Unpaid"}</div>
+            </div>
+          </div>
+          ${o.lines && o.lines.length ? `
+            <div class="order-lines mt-2">
+              ${o.lines.map(l => `
+                <div class="d-flex justify-content-between small">
+                  <span class="text-muted">${l.item_name} × ${l.quantity}</span>
+                  <span class="text-muted">₹${Number(l.line_total).toFixed(0)}</span>
+                </div>
+              `).join("")}
+            </div>
+          ` : ``}
+        </div>
+      `).join("")}
+    </div>
+  `}
+
+  ${include("partials/student-nav", { active: "orders" })}
+` }) %>
+

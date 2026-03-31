@@ -1,0 +1,69 @@
+<%- include("partials/layout", { title: "Login", body: `
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-7 col-lg-5">
+      <div class="login-card shadow-eatclub">
+        <div class="text-center mb-3">
+          <div class="login-mark">🍽</div>
+          <div class="h4 fw-bold mb-1">Campus Food Court</div>
+          <div class="text-muted">Order your meals with ease</div>
+        </div>
+
+        <div class="segmented mb-3">
+          <button class="segmented__btn is-active" type="button" id="tabStudent" onclick="showTab('student')">Student</button>
+          <button class="segmented__btn" type="button" id="tabAdmin" onclick="showTab('admin')">Admin</button>
+        </div>
+
+        ${error ? `<div class="alert alert-danger border-0 shadow-eatclub">${error}</div>` : ""}
+
+        <div id="studentFields">
+          <form method="post" action="/login/student" class="vstack gap-2">
+            <label class="form-label">Email</label>
+            <input class="form-control" name="email" placeholder="e.g. student@college.com" autocomplete="username" required />
+            <label class="form-label mt-2">Password</label>
+            <input class="form-control" name="password" type="password" placeholder="Enter password" autocomplete="current-password" required />
+            <a class="small text-muted mt-2" href="/register">Register here</a>
+            <button class="btn btn-eatclub w-100 mt-2" type="submit">Sign In</button>
+          </form>
+        </div>
+
+        <div id="adminFields" style="display:none">
+          <form method="post" action="/login/admin" class="vstack gap-2">
+            <label class="form-label">Admin ID</label>
+            <input class="form-control" name="username" placeholder="Enter admin ID" autocomplete="username" required />
+            <label class="form-label mt-2">Password</label>
+            <input class="form-control" name="password" type="password" placeholder="Enter password" autocomplete="current-password" required />
+            <button class="btn btn-eatclub w-100 mt-2" type="submit">Sign In</button>
+          </form>
+        </div>
+
+        <div class="small text-muted mt-3 text-center">
+          Student users must register first.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showTab(which) {
+      const tabStudent = document.getElementById('tabStudent');
+      const tabAdmin = document.getElementById('tabAdmin');
+      const student = document.getElementById('studentFields');
+      const admin = document.getElementById('adminFields');
+
+      if (which === 'admin') {
+        tabAdmin.classList.add('is-active');
+        tabStudent.classList.remove('is-active');
+        admin.style.display = '';
+        student.style.display = 'none';
+        admin.querySelector('input[name="username"]').focus();
+      } else {
+        tabStudent.classList.add('is-active');
+        tabAdmin.classList.remove('is-active');
+        student.style.display = '';
+        admin.style.display = 'none';
+        student.querySelector('input[name="email"]').focus();
+      }
+    }
+  </script>
+` }) %>
+

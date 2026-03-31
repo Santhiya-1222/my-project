@@ -1,0 +1,234 @@
+<%- include("partials/layout", { title: "Cart", body: `
+  <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap mb-3">
+    <div>
+      <div class="page-title">Cart</div>
+      <div class="text-muted">Review & checkout</div>
+    </div>
+    <button class="btn btn-sm btn-outline-secondary" type="button" onclick="clearCart()">Clear</button>
+  </div>
+
+  <div id="cartItems"></div>
+
+  <div class="card shadow-eatclub border-0 mb-5">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <div class="fw-semibold">Total</div>
+        <div class="h5 mb-0" id="cartTotal">₹0</div>
+      </div>
+
+      ${ordering && ordering.isOrderingOpen ? "" : '<div class="alert alert-danger border-0 shadow-eatclub mb-3">' + ordering.reason + "</div>"}
+
+      <form method="post" action="/checkout" class="vstack gap-2" id="checkoutForm">
+        <select class="form-select" id="payMethod" name="payMethod">
+          <option value="offline">Offline pay</option>
+          <option value="online">Online pay</option>
+        </select>
+        <input class="form-control" name="notes" placeholder="Notes (optional)" maxlength="200" />
+        <input type="hidden" name="lines" id="linesHidden" />
+        <button class="btn btn-eatclub" type="submit" id="checkoutBtn" ${ordering && ordering.isOrderingOpen ? "" : "disabled"}>
+          Checkout
+        </button>
+      </form>
+    </div>
+  </div>
+
+  ${include("partials/student-nav", { active: "cart" })}
+
+  <script>
+    let ITEM_BY_ID = new Map();
+    const CART_KEY = "eatclub_cart_v1";
+
+    function readCart() {
+      try {
+        const raw = localStorage.getItem(CART_KEY);
+        if (!raw) return { items: {} };
+        const parsed = JSON.parse(raw);
+        if (!parsed || typeof parsed !== "object") return { items: {} };
+        if (!parsed.items || typeof parsed.items !== "object") return { items: {} };
+        return parsed;
+      } catch (e) {
+        return { items: {} };
+      }
+    }
+
+    function syncBadge() {
+      const el = document.getElementById("cartBadge");
+      if (!el) return;
+      const cart = readCart();
+      const c = Object.values(cart.items || {}).reduce((sum, n) => sum + Number(n || 0), 0);
+      el.textContent = String(c);
+      el.style.display = c > 0 ? "" : "none";
+    }
+
+    function fmtINR(n) {
+      return "₹" + Number(n || 0).toFixed(0);
+    }
+
+    function cartEntries() {
+      const cart = readCart();
+      return Object.entries(cart.items || {})
+        .map(([id, qty]) => ({ id: Number(id), qty: Number(qty || 0) }))
+        .filter((x) => x.qty > 0);
+    }
+
+    function setQty(itemId, qty) {
+      const q = Math.max(0, Math.min(20, Number(qty || 0)));
+      const cart = readCart();
+      cart.items = cart.items || {};
+      const id = String(itemId);
+      if (q <= 0) delete cart.items[id];
+      else cart.items[id] = q;
+
+      try {
+        localStorage.setItem(CART_KEY, JSON.stringify(cart));
+      } catch (e) {}
+      renderCart();
+    }
+
+    function escapeHtml(s) {
+      return String(s)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function renderCart() {
+      if (!ITEM_BY_ID || ITEM_BY_ID.size === 0) return;
+      const mount = document.getElementById("cartItems");
+      const entries = cartEntries();
+      mount.innerHTML = "";
+
+      let total = 0;
+
+      if (entries.length === 0) {
+        mount.innerHTML =
+          '<div class="empty-state shadow-eatclub">' +
+          '<div class="empty-state__icon">🛒</div>' +
+          '<div class="empty-state__title">Cart is empty</div>' +
+          '<div class="empty-state__subtitle">Add some delicious food!</div>' +
+          '<a class="btn btn-eatclub mt-3" href="/menu">Browse Menu</a>' +
+          "</div>";
+        document.getElementById("cartTotal").textContent = fmtINR(0);
+        syncBadge();
+        return;
+      }
+
+      for (const e of entries) {
+        const it = ITEM_BY_ID.get(e.id);
+        if (!it) continue;
+
+        const line = Number(it.price) * e.qty;
+        total += line;
+
+        const card = document.createElement("div");
+        card.className = "card shadow-eatclub border-0 mb-2";
+
+        const body = document.createElement("div");
+        body.className = "card-body";
+
+        const row = document.createElement("div");
+        row.className = "d-flex justify-content-between align-items-start gap-3";
+
+        const left = document.createElement("div");
+        left.className = "flex-grow-1";
+
+        const name = document.createElement("div");
+        name.className = "fw-semibold";
+        name.textContent = it.name;
+        left.appendChild(name);
+
+        const meta = document.createElement("div");
+        meta.className = "small text-muted";
+        meta.textContent = "₹" + Number(it.price).toFixed(0) + " • " + it.meal;
+        left.appendChild(meta);
+
+        if (!it.available) {
+          const warn = document.createElement("div");
+          warn.className = "text-danger small";
+          warn.textContent = "(not available)";
+          left.appendChild(warn);
+        }
+
+        const right = document.createElement("div");
+        right.className = "text-end";
+
+        const lineTotal = document.createElement("div");
+        lineTotal.className = "fw-semibold";
+        lineTotal.textContent = fmtINR(line);
+        right.appendChild(lineTotal);
+
+        const qtyRow = document.createElement("div");
+        qtyRow.className = "mt-2 d-flex justify-content-end align-items-center gap-2";
+
+        const btnMinus = document.createElement("button");
+        btnMinus.type = "button";
+        btnMinus.className = "btn btn-sm btn-outline-secondary";
+        btnMinus.textContent = "-";
+        btnMinus.addEventListener("click", () => setQty(it.id, e.qty - 1));
+        qtyRow.appendChild(btnMinus);
+
+        const input = document.createElement("input");
+        input.className = "form-control form-control-sm qty";
+        input.type = "number";
+        input.min = "0";
+        input.max = "20";
+        input.style.maxWidth = "84px";
+        input.value = String(e.qty);
+        input.addEventListener("input", () => setQty(it.id, input.value));
+        qtyRow.appendChild(input);
+
+        const btnPlus = document.createElement("button");
+        btnPlus.type = "button";
+        btnPlus.className = "btn btn-sm btn-outline-secondary";
+        btnPlus.textContent = "+";
+        btnPlus.addEventListener("click", () => setQty(it.id, e.qty + 1));
+        qtyRow.appendChild(btnPlus);
+
+        const btnRemove = document.createElement("button");
+        btnRemove.type = "button";
+        btnRemove.className = "btn btn-sm btn-danger-soft btn-icon";
+        btnRemove.textContent = "🗑";
+        btnRemove.title = "Remove";
+        btnRemove.addEventListener("click", () => setQty(it.id, 0));
+        qtyRow.appendChild(btnRemove);
+
+        right.appendChild(qtyRow);
+
+        row.appendChild(left);
+        row.appendChild(right);
+        body.appendChild(row);
+        card.appendChild(body);
+
+        mount.appendChild(card);
+      }
+
+      document.getElementById("cartTotal").textContent = fmtINR(total);
+      syncBadge();
+    }
+
+    function clearCart() {
+      try {
+        localStorage.setItem(CART_KEY, JSON.stringify({ items: {} }));
+      } catch (e) {}
+      renderCart();
+    }
+
+    document.getElementById("checkoutForm").addEventListener("submit", function () {
+      const entries = cartEntries();
+      const hidden = document.getElementById("linesHidden");
+      hidden.value = JSON.stringify(entries.map((e) => ({ item_id: e.id, quantity: e.qty })));
+    });
+
+    // layout.js cart script runs after this template; delay so window.EatClubCart exists
+    fetch("/api/foods")
+      .then((r) => r.json())
+      .then((items) => {
+        ITEM_BY_ID = new Map(items.map((i) => [Number(i.id), i]));
+        renderCart();
+      })
+      .catch(() => {});
+  </script>
+` }) %>
+

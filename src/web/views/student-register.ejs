@@ -1,0 +1,36 @@
+<%- include("partials/layout", { title: "Student Registration", body: `
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <div class="login-card shadow-eatclub">
+        <div class="text-center mb-2">
+          <div class="login-mark">🧾</div>
+          <div class="h4 fw-bold mb-1">Student Registration</div>
+          <div class="text-muted">Register first to order food</div>
+        </div>
+
+        ${error ? `<div class="alert alert-danger border-0 shadow-eatclub">${error}</div>` : ""}
+
+        <form method="post" action="/register/student" class="vstack gap-2">
+          <label class="form-label">Name</label>
+          <input class="form-control" name="name" placeholder="Student name" required />
+
+          <label class="form-label mt-2">Email</label>
+          <input class="form-control" name="email" type="email" placeholder="e.g. student@college.com" required />
+
+          <label class="form-label mt-2">Student ID / Roll No</label>
+          <input class="form-control" name="studentId" placeholder="e.g. 2024CS001" required />
+
+          <label class="form-label mt-2">Password</label>
+          <input class="form-control" name="password" type="password" placeholder="Create password" required />
+
+          <button class="btn btn-eatclub w-100 mt-2" type="submit">Register</button>
+        </form>
+
+        <div class="text-center small text-muted mt-3">
+          Already registered? <a href="/login" class="text-white">Login</a>
+        </div>
+      </div>
+    </div>
+  </div>
+` }) %>
+

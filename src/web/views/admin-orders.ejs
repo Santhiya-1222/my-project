@@ -1,0 +1,74 @@
+<%- include("partials/layout", { title: "Order Management", body: `
+  <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap mb-3">
+    <div>
+      <div class="page-title">Order Management</div>
+      <div class="text-muted">Filter by slot and payment</div>
+    </div>
+  </div>
+
+  <form method="get" action="/admin/orders" class="d-flex gap-2 mb-3">
+    <select class="form-select" name="slot">
+      <option value="all" ${slot === "all" ? "selected" : ""}>All Slots</option>
+      <option value="afternoon" ${slot === "afternoon" ? "selected" : ""}>Lunch</option>
+      <option value="evening" ${slot === "evening" ? "selected" : ""}>Evening</option>
+    </select>
+    <select class="form-select" name="pay">
+      <option value="all" ${pay === "all" ? "selected" : ""}>All Payments</option>
+      <option value="paid" ${pay === "paid" ? "selected" : ""}>Paid</option>
+      <option value="unpaid" ${pay === "unpaid" ? "selected" : ""}>Unpaid</option>
+    </select>
+    <button class="btn btn-eatclub" type="submit">Apply</button>
+  </form>
+
+  ${(!orders || !orders.length) ? `
+    <div class="empty-state shadow-eatclub">
+      <div class="empty-state__icon">🧾</div>
+      <div class="empty-state__title">No orders found</div>
+      <div class="empty-state__subtitle">Try different filters.</div>
+    </div>
+  ` : `
+    <div class="vstack gap-3 mb-5">
+      ${orders.map(o => `
+        <div class="order-card shadow-eatclub">
+          <div class="d-flex justify-content-between align-items-start gap-3">
+            <div>
+              <div class="fw-semibold">${o.username} • #${o.id}</div>
+              <div class="small text-muted">${o.item_name}</div>
+              <div class="small text-muted">${o.created_at} ${o.slot && o.slot !== "unknown" ? `• ${o.slot}` : ""}</div>
+            </div>
+            <div class="text-end">
+              <div class="fw-semibold">₹${Number(o.total_price).toFixed(0)}</div>
+              <div class="small ${o.paid ? "text-success" : "text-warning"}">${o.paid ? "Paid" : "Unpaid"}</div>
+            </div>
+          </div>
+
+          ${o.lines && o.lines.length ? `
+            <div class="order-lines mt-2">
+              ${o.lines.map(l => `
+                <div class="d-flex justify-content-between small">
+                  <span class="text-muted">${l.item_name} × ${l.quantity}</span>
+                  <span class="text-muted">₹${Number(l.line_total).toFixed(0)}</span>
+                </div>
+              `).join("")}
+            </div>
+          ` : ``}
+
+          <div class="d-flex justify-content-between align-items-center mt-2">
+            <div class="small text-muted">${o.pay_method}${o.payment_ref ? ` • ${o.payment_ref}` : ""}</div>
+            <form method="post" action="/admin/order/paid" class="d-flex align-items-center gap-2">
+              <input type="hidden" name="id" value="${o.id}" />
+              <input type="hidden" name="back" value="/admin/orders?slot=${slot}&pay=${pay}" />
+              <div class="form-check m-0">
+                <input class="form-check-input" type="checkbox" name="paid" id="paid-${o.id}" ${o.paid ? "checked" : ""} onchange="this.form.submit()" ${o.pay_method === "online" ? "disabled" : ""} />
+                <label class="form-check-label small text-muted" for="paid-${o.id}">Paid</label>
+              </div>
+            </form>
+          </div>
+        </div>
+      `).join("")}
+    </div>
+  `}
+
+  ${include("partials/admin-nav", { active: "orders" })}
+` }) %>
+

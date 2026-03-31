@@ -1,0 +1,18 @@
+{
+  "name": "eatclub-food-court",
+  "version": "1.0.0",
+  "private": true,
+  "description": "College food court ordering (admin + student)",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "node src/server.js",
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1"
+  }
+}
+

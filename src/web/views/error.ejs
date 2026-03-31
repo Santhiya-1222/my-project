@@ -1,0 +1,8 @@
+<%- include("partials/layout", { title: "Error", body: `
+  <div class="alert alert-danger shadow-sm">
+    <div class="fw-semibold mb-1">Something went wrong</div>
+    <div>${message || "Unknown error."}</div>
+  </div>
+  <a href="/" class="btn btn-outline-secondary">Go back</a>
+` }) %>
+
