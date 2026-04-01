@@ -51,15 +51,13 @@ res.render("login", { error: null });
 
 // ================= AUTH =================
 
-// Login page
 app.get("/login", (req, res) => {
 res.render("login", { error: null });
 });
 
 // Admin login
 app.post("/login/admin", (req, res) => {
-const username = req.body.username;
-const password = req.body.password;
+const { username, password } = req.body;
 
 if (username === "admin" && password === "admin") {
 req.session.user = { role: "admin", name: "admin" };
@@ -71,8 +69,7 @@ res.render("login", { error: "Invalid admin credentials" });
 
 // Student login
 app.post("/login/student", (req, res) => {
-const email = req.body.email;
-const password = req.body.password;
+const { email, password } = req.body;
 
 const student = store.validateStudentLogin({ email, password });
 
@@ -125,6 +122,7 @@ app.get("/home", requireAuth, requireRole("student"), (req, res) => {
 res.render("student-home");
 });
 
+// MENU
 app.get("/menu", requireAuth, requireRole("student"), (req, res) => {
 const afternoon = store.listFoodItemsByMeal("afternoon") || [];
 const evening = store.listFoodItemsByMeal("evening") || [];
@@ -132,11 +130,36 @@ const evening = store.listFoodItemsByMeal("evening") || [];
 res.render("student-menu", { afternoon, evening });
 });
 
+// ================= CART (FIXED) =================
+
+// View cart
 app.get("/cart", requireAuth, requireRole("student"), (req, res) => {
 const ordering = getOrderingState(new Date());
-const allItems = store.listFoodItems() || [];
+const cart = req.session.cart || [];
 
-res.render("student-cart", { ordering, allItems });
+res.render("student-cart", { ordering, cart });
+});
+
+// Add to cart
+app.post("/cart/add", requireAuth, requireRole("student"), (req, res) => {
+const { name, price } = req.body;
+
+if (!req.session.cart) {
+req.session.cart = [];
+}
+
+req.session.cart.push({
+name,
+price: Number(price),
+});
+
+res.redirect("/cart");
+});
+
+// Clear cart
+app.post("/cart/clear", requireAuth, (req, res) => {
+req.session.cart = [];
+res.redirect("/cart");
 });
 
 // Checkout
@@ -147,22 +170,15 @@ if (!ordering.isOrderingOpen) {
 return res.render("error", { message: ordering.reason });
 }
 
-try {
-const order = store.addCartOrder({
-user_id: req.session.user.id,
-lines: req.body.lines || [],
-pay_method: req.body.payMethod || "offline",
-notes: req.body.notes || "",
-slot: ordering.window,
-});
+const cart = req.session.cart || [];
 
-```
-res.render("order-success", { order });
-```
-
-} catch (err) {
-res.render("error", { message: err.message });
+if (cart.length === 0) {
+return res.render("error", { message: "Cart is empty" });
 }
+
+res.render("order-success", { cart });
+
+req.session.cart = []; // clear after order
 });
 
 // ================= ADMIN =================
@@ -173,17 +189,14 @@ const items = store.listFoodItems() || [];
 const orders = store.listOrdersAllWithUsernames() || [];
 
 ```
-const todaysRevenue = 0;
-
 res.render("admin-dashboard", {
   totalOrders: orders.length || 0,
   activeItems: items.filter((i) => i.available).length || 0,
-  todaysRevenue,
+  todaysRevenue: 0,
 });
 ```
 
 } catch (err) {
-console.error("ADMIN ERROR:", err);
 res.render("error", { message: err.message });
 }
 });
