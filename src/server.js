@@ -44,16 +44,13 @@ next();
 });
 
 // ✅ Health check routes
+app.get("/health", (req, res) => {
+  res.type("text/plain").send("OK");
+});
+
 app.get("/", (req, res) => {
   res.render("login", { error: null });
 });
-res.type("text/plain").send("OK");
-});
-
-app.get("/", (req, res) => {
-res.render("login"); // main page
-});
-
 // ================= AUTH =================
 
 app.get("/login", (req, res) => res.render("login", { error: null }));
