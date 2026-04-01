@@ -44,7 +44,9 @@ next();
 });
 
 // ✅ Health check routes
-app.get("/health", (req, res) => {
+app.get("/", (req, res) => {
+  res.render("login", { error: null });
+});
 res.type("text/plain").send("OK");
 });
 
