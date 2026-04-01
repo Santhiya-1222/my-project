@@ -191,13 +191,16 @@ return res.render("order-success", { order });
 // ================= ADMIN =================
 
 app.get("/admin/dashboard", requireAuth, requireRole("admin"), (req, res) => {
-const items = store.listFoodItems();
-const orders = store.listOrdersAllWithUsernames();
+  const items = store.listFoodItems();
+  const orders = store.listOrdersAllWithUsernames();
 
-res.render("admin-dashboard", {
-totalOrders: orders.length,
-activeItems: items.filter((i) => i.available).length,
-});
+  const todaysRevenue = 0; // temporary
+
+  res.render("admin-dashboard", {
+    totalOrders: orders.length,
+    activeItems: items.filter((i) => i.available).length,
+    todaysRevenue: todaysRevenue, // ✅ IMPORTANT
+  });
 });
 
 // ================= ERROR =================
