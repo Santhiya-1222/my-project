@@ -1,131 +1,64 @@
-<%
-  const canOrder = ordering && ordering.isOrderingOpen;
-  const window = ordering && ordering.window;
-%>
 <%- include("partials/layout", { title: "Menu", body: `
-  <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap mb-3">
-    <div>
-      <div class="page-title">Menu</div>
-      <div class="text-muted">Choose your favorites</div>
+
+<div class="container mt-4">
+  <h2 class="mb-3">Menu</h2>
+
+  <!-- Afternoon -->
+
+  <h4 class="mt-4">Afternoon</h4>
+  <div class="row">
+    ${afternoon.map(item => `
+      <div class="col-md-4 mb-3">
+        <div class="card p-3 shadow-eatclub">
+
+```
+      <h5>${item.name}</h5>
+      <p>₹${Number(item.price).toFixed(0)}</p>
+
+      <form method="POST" action="/cart/add">
+        <input type="hidden" name="name" value="${item.name}">
+        <input type="hidden" name="price" value="${item.price}">
+        
+        <button type="submit" class="btn btn-eatclub w-100">
+          Add to Cart
+        </button>
+      </form>
+
     </div>
   </div>
+`).join("")}
+```
 
-  <div class="alert ${canOrder ? "alert-success" : "alert-danger"} shadow-eatclub border-0">
-    <div class="fw-semibold">${ordering.isOrderingOpen ? "Ordering Open" : "Ordering Closed"}</div>
-    <div class="small opacity-75">${ordering.reason}</div>
   </div>
 
-  <div class="segmented mb-3">
-    <a class="segmented__btn ${window === "afternoon" ? "is-active" : ""}" href="#afternoon">Afternoon</a>
-    <a class="segmented__btn ${window === "evening" ? "is-active" : ""}" href="#evening">Evening</a>
-  </div>
+  <!-- Evening -->
 
-  <div id="afternoon" class="mb-4">
-    <div class="d-flex align-items-center justify-content-between mb-2">
-      <div class="section-title">Afternoon</div>
-      <div class="chip ${window === "afternoon" ? "chip--ok" : ""}">Order before 10:00 AM</div>
-    </div>
-    <div class="row g-3">
-      ${(afternoon || []).map(item => `
-        <div class="col-6">
-          <div class="menu-card shadow-eatclub">
-            <div
-              class="menu-card__img"
-              aria-hidden="true"
-              style="background-image:url('${item.image || ''}')"></div>
-            <div class="menu-card__body">
-              <div class="menu-card__name">${item.name}</div>
-              <div class="menu-card__meta">
-                <span class="price">₹${Number(item.price).toFixed(0)}</span>
-                <span class="dot">•</span>
-                <span class="${item.available ? "text-success" : "text-danger"}">${item.available ? "available" : "not available"}</span>
-              </div>
-              <form class="menu-card__actions" data-item-id="${item.id}" onsubmit="return false;">
-                <div class="qtystep">
-                  <button type="button" class="qtystep__btn" onclick="decQty(this)">−</button>
-                  <input class="qtystep__input" type="number" min="1" max="20" name="quantity" value="1" />
-                  <button type="button" class="qtystep__btn" onclick="incQty(this)">+</button>
-                </div>
-                <button class="btn btn-eatclub btn-sm w-100"
-                  type="button"
-                  onclick="addToCartFromMenu(this)"
-                  ${(!canOrder || window !== "afternoon" || !item.available) ? "disabled" : ""}>
-                  Add
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      `).join("")}
+  <h4 class="mt-4">Evening</h4>
+  <div class="row">
+    ${evening.map(item => `
+      <div class="col-md-4 mb-3">
+        <div class="card p-3 shadow-eatclub">
+
+```
+      <h5>${item.name}</h5>
+      <p>₹${Number(item.price).toFixed(0)}</p>
+
+      <form method="POST" action="/cart/add">
+        <input type="hidden" name="name" value="${item.name}">
+        <input type="hidden" name="price" value="${item.price}">
+        
+        <button type="submit" class="btn btn-eatclub w-100">
+          Add to Cart
+        </button>
+      </form>
+
     </div>
   </div>
+`).join("")}
+```
 
-  <div id="evening" class="mb-5">
-    <div class="d-flex align-items-center justify-content-between mb-2">
-      <div class="section-title">Evening</div>
-      <div class="chip ${window === "evening" ? "chip--ok" : ""}">Order after 2:00 PM</div>
-    </div>
-    <div class="row g-3">
-      ${(evening || []).map(item => `
-        <div class="col-6">
-          <div class="menu-card shadow-eatclub">
-            <div
-              class="menu-card__img"
-              aria-hidden="true"
-              style="background-image:url('${item.image || ''}')"></div>
-            <div class="menu-card__body">
-              <div class="menu-card__name">${item.name}</div>
-              <div class="menu-card__meta">
-                <span class="price">₹${Number(item.price).toFixed(0)}</span>
-                <span class="dot">•</span>
-                <span class="${item.available ? "text-success" : "text-danger"}">${item.available ? "available" : "not available"}</span>
-              </div>
-              <form class="menu-card__actions" data-item-id="${item.id}" onsubmit="return false;">
-                <div class="qtystep">
-                  <button type="button" class="qtystep__btn" onclick="decQty(this)">−</button>
-                  <input class="qtystep__input" type="number" min="1" max="20" name="quantity" value="1" />
-                  <button type="button" class="qtystep__btn" onclick="incQty(this)">+</button>
-                </div>
-                <button class="btn btn-eatclub btn-sm w-100"
-                  type="button"
-                  onclick="addToCartFromMenu(this)"
-                  ${(!canOrder || window !== "evening" || !item.available) ? "disabled" : ""}>
-                  Add
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      `).join("")}
-    </div>
   </div>
 
-  <script>
-    function incQty(btn) {
-      const input = btn.parentElement.querySelector('input');
-      input.value = Math.min(20, Number(input.value || 1) + 1);
-    }
-    function decQty(btn) {
-      const input = btn.parentElement.querySelector('input');
-      input.value = Math.max(1, Number(input.value || 1) - 1);
-    }
+</div>
 
-    function addToCartFromMenu(btn) {
-      if (!window.EatClubCart) return;
-      if (btn.disabled) return;
-
-      const form = btn.closest('form');
-      const itemId = Number(form.dataset.itemId);
-      const qty = Math.max(1, Math.min(20, Number(form.querySelector('input[name="quantity"]').value || 1)));
-      const current = window.EatClubCart.getItemQty(itemId);
-      window.EatClubCart.setItem(itemId, Math.min(20, current + qty));
-
-      const oldText = btn.textContent;
-      btn.textContent = "Added";
-      setTimeout(() => (btn.textContent = oldText), 900);
-    }
-  </script>
-
-  ${include("partials/student-nav", { active: "menu" })}
 ` }) %>
-
